@@ -6,9 +6,9 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 db_url = 'localhost:5432'
-db_name = 'online-exam'
+db_name = 'summon-app'
 db_user = 'postgres'
-db_password = '0NLIN3-ex4m'
+db_password = '123456'
 engine = create_engine(f'postgresql://{db_user}:{db_password}@{db_url}/{db_name}')
 Session = sessionmaker(bind=engine)
 

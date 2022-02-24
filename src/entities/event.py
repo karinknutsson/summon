@@ -1,6 +1,6 @@
 # coding=utf-8
 
-from sqlalchemy import Table, Column, String, ForeignKey, DateTime
+from sqlalchemy import Table, Column, String, Text, Integer, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from geoalchemy2 import Geometry
 
@@ -11,15 +11,15 @@ class Event(Entity, Base):
     __tablename__ = 'events'
 
     name = Column(String, nullable=False)
-    description = Column(String)
+    description = Column(Text)
     dateTimeStart = Column(DateTime, nullable=False)
     dateTimeEnd = Column(DateTime, nullable=False)
     location = Column(Geometry('POINT'))
-    url = Column(Text)
+    url = Column(String)
     user_id = Column(Integer, ForeignKey('user.id'), nullable=False)
-    image_file = Column(Text)
+    image_file = Column(String)
 
-    def __init__(self, name, description, created_by):
+    def __init__(self, name, description, dateTimeStart, dateTimeEnd, location, url, image_file):
         Entity.__init__(self, created_by)
         self.name = name
         self.description = description
