@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+
+body {
+  background: #8080ff;
+  color: white;
+}
+
+h1 {
+  font-family: "Knewave", sans-serif;
+  font-size: 52pt;
+}
