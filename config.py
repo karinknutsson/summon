@@ -1,5 +1,8 @@
 import os
+from dotenv import dotenv_values
 basedir = os.path.abspath(os.path.dirname(__file__))
+
+# load_dotenv()
 
 class Config:
     DEBUG = False
