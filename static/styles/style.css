@@ -1,11 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Knewave&family=League+Spartan:wght@200;400;500;600;700&display=swap');
 
 body {
   background: #8080ff;
   color: white;
+  font-family: 'League Spartan', sans-serif;
 }
 
 h1 {
-  font-family: "Knewave", sans-serif;
+  font-family: 'Knewave', sans-serif;
   font-size: 52pt;
+}
+
+h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 20pt;
 }

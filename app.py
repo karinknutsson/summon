@@ -14,6 +14,10 @@ from models import *
 def index():
     return render_template('index.html')
 
+@app.route('/create')
+def create():
+    return render_template('new_event.html')
+
 
 if __name__ == '__main__':
     app.run()
