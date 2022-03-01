@@ -19,3 +19,15 @@ h2, h3, h4, h5, h6 {
 h4 {
   font-size: 20pt;
 }
+
+input {
+  color: black;
+  font-family: inherit;
+  border: 0;
+  border-radius: 2px;
+  padding: 4px 8px;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}

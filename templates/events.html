@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-0 col-sm-2 col-md-4"></div>
+        <div class="col-12 col-sm-8 col-md-4">
+            <h4>Events</h4>
+            <ul>
+                {% for event in events %}
+                <li>{{event.name}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-0 col-sm-2 col-md-4"></div>
+    </div>
+{% endblock %}

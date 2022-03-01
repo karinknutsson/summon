@@ -1,25 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>summon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
-</head>
-<body>
-    <div class="container-fluid">
-        <h1>summon</h1>
-    </div>
+{% extends 'layout.html' %}
 
-    <div class="container-fluid">
+{% block content %}
         <div class="row">
             <div class="col-0 col-sm-2 col-md-4"></div>
             <div class="col-12 col-sm-8 col-md-4">
-                <!-- TODO: create form -->
                 <h4>New event</h4>
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+
+                    <p>
+                        {{ form.name.label }}<br>
+                        {{ form.name(size=32) }}
+                    </p>
+                    <p>
+                        {{ form.description.label }}<br>
+                        {{ form.description(size=32) }}
+                    </p>
+
+                    <p>
+                        {{ form.startDate.label }}<br>
+                        {{ form.startDate }}
+                    </p>
+                    <p>
+                        {{ form.endDate.label }}<br>
+                        {{ form.endDate }}
+                    </p>
+                    <p>
+                        {{ form.url.label }}<br>
+                        {{ form.url(size=32) }}
+                    </p>
+
+                    <p>{{ form.submit() }}</p>
+                </form>
             </div>
             <div class="col-0 col-sm-2 col-md-4"></div>
         </div>
-    </div>
-</body>
-</html>
+{% endblock %}
