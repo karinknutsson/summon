@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
+from models import *
+from forms import EventForm
 
 
 app = Flask(__name__)
@@ -10,8 +12,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 csrf = CSRFProtect(app)
 
-from models import *
-from forms import EventForm
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
