@@ -2,9 +2,6 @@ import os
 from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
-from models import *
-from forms import EventForm
-
 
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
@@ -14,6 +11,9 @@ SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 db = SQLAlchemy(app)
 csrf = CSRFProtect(app)
+
+from models import *
+from forms import EventForm
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -27,9 +27,8 @@ def all_events():
     return render_template('events.html', events=events)
 
 
-@app.route('/events/<id>')
-
-def show_events(event_id):
+@app.route('/events/<event_id>')
+def show_event(event_id):
     event = Event.query.get(event_id)
     return render_template('event.html', event=event)
 
@@ -57,13 +56,8 @@ def new_event():
         return render_template('message.html', message=message)
 
     elif request.method == 'POST':
-<<<<<<< HEAD
-        message="Thanks! Something went wrong."
-        #return render_template('message.html', message=message)
-=======
         message = "Thanks! Something went wrong."
         return render_template('message.html', message=message)
->>>>>>> d6a907b099ebd32455bca8fee3d0e09e2d448910
 
     return render_template('new_event.html', form=form)
 

@@ -4,7 +4,11 @@
 <div class="row">
     <div class="col-0 col-sm-2 col-md-4"></div>
     <div class="col-12 col-sm-8 col-md-4">
-        <h4>Welcome!</h4>
+        <h4>Welcome! What do you want to do?</h4>
+        <ul>
+            <li><a href="{{ url_for('new_event') }}">Create new event</a></li>
+            <li><a href="{{ url_for('all_events') }}">See all events</a></li>
+        </ul>
     </div>
     <div class="col-0 col-sm-2 col-md-4"></div>
 </div>
