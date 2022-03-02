@@ -25,8 +25,8 @@ def all_events():
 
 
 @app.route('/events/<id>')
-def show_events(id):
-    event = Event.query.get(id)
+def show_events(event_id):
+    event = Event.query.get(event_id)
     return render_template('event.html', event=event)
 
 
