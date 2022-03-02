@@ -1,39 +1,38 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-        <div class="row">
-            <div class="col-0 col-sm-1 col-md-3"></div>
-            <div class="col-12 col-sm-10 col-md-6 padding-32">
-                <h4>New event</h4>
-                <form action="/new" method="post">
-                    {{ form.hidden_tag() }}
+<div class="row">
+    <div class="col-0 col-sm-1 col-md-3"></div>
+    <div class="col-12 col-sm-10 col-md-6 padding-32">
+        <h4>New event</h4>
+        <form action="/new" method="post">
+            {{ form.hidden_tag() }}
 
-                    <p>
-                        {{ form.name.label }}<br>
-                        {{ form.name }}
-                    </p>
-                    <p>
-                        {{ form.description.label }}<br>
-                        {{ form.description }}
-                    </p>
+            <p>
+                {{ form.name.label }}<br>
+                {{ form.name }}
+            </p>
+            <p>
+                {{ form.description.label }}<br>
+                {{ form.description }}
+            </p>
 
-                    <p>
-                        {{ form.startDate.label }}<br>
-                        {{ form.startDate }}
-                    </p>
-                    <p>
-                        {{ form.endDate.label }}<br>
-                        {{ form.endDate }}
-                    </p>
-                    <p>
-                        {{ form.url.label }}<br>
-                        {{ form.url }}
-                    </p>
+            <p>
+                {{ form.startDate.label }}<br>
+                {{ form.startDate }}
+            </p>
+            <p>
+                {{ form.endDate.label }}<br>
+                {{ form.endDate }}
+            </p>
+            <p>
+                {{ form.url.label }}<br>
+                {{ form.url }}
+            </p>
 
-                    <div class="right-align">{{ form.submit() }}</div>
-                </form>
-            </div>
-            <div class="col-0 col-sm-1 col-md-3"></div>
-        </div>
-
+            <div class="right-align">{{ form.submit() }}</div>
+        </form>
+    </div>
+    <div class="col-0 col-sm-1 col-md-3"></div>
+</div>
 {% endblock %}
