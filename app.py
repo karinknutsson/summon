@@ -7,6 +7,9 @@ from flask_wtf.csrf import CSRFProtect
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+# app.config.from_object(os.environ['SECRET_KEY'])
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 db = SQLAlchemy(app)
 csrf = CSRFProtect(app)
 
@@ -25,15 +28,15 @@ def all_events():
 
 
 @app.route('/events/<id>')
-def show_events(id):
+def show_event(id):
     event = Event.query.get(id)
     return render_template('event.html', event=event)
 
 
-@app.route('/create', methods=['GET', 'POST'])
+@app.route('/new', methods=['GET', 'POST'])
 def new_event():
     form = EventForm()
-    if request.method == 'POST' and form.validate():
+    if request.method == 'POST' and form.validate_on_submit():
 
         # get values from form
         name = request.form['name']
@@ -54,7 +57,7 @@ def new_event():
 
     elif request.method == 'POST':
         message="Thanks! Something went wrong."
-        return render_template('message.html', message=message)
+        #return render_template('message.html', message=message)
 
     return render_template('new_event.html', form=form)
 

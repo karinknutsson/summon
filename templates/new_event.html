@@ -2,19 +2,19 @@
 
 {% block content %}
         <div class="row">
-            <div class="col-0 col-sm-2 col-md-4"></div>
-            <div class="col-12 col-sm-8 col-md-4">
+            <div class="col-0 col-sm-1 col-md-3"></div>
+            <div class="col-12 col-sm-10 col-md-6 padding-32">
                 <h4>New event</h4>
-                <form action="" method="post" novalidate>
+                <form action="/new" method="post">
                     {{ form.hidden_tag() }}
 
                     <p>
                         {{ form.name.label }}<br>
-                        {{ form.name(size=32) }}
+                        {{ form.name }}
                     </p>
                     <p>
                         {{ form.description.label }}<br>
-                        {{ form.description(size=32) }}
+                        {{ form.description }}
                     </p>
 
                     <p>
@@ -27,12 +27,13 @@
                     </p>
                     <p>
                         {{ form.url.label }}<br>
-                        {{ form.url(size=32) }}
+                        {{ form.url }}
                     </p>
 
-                    <p>{{ form.submit() }}</p>
+                    <div class="right-align">{{ form.submit() }}</div>
                 </form>
             </div>
-            <div class="col-0 col-sm-2 col-md-4"></div>
+            <div class="col-0 col-sm-1 col-md-3"></div>
         </div>
+
 {% endblock %}
