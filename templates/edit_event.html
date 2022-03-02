@@ -5,7 +5,7 @@
     <div class="col-0 col-sm-2 col-md-4"></div>
     <div class="col-12 col-sm-8 col-md-4">
         <h4>Edit event</h4>
-        <form action="/edit" method="post" novalidate>
+        <form action="{{ url_for('edit_event', event_id=event_id) }}" method="post">
             {{ form.hidden_tag() }}
 
             <p>

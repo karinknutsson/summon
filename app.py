@@ -73,23 +73,27 @@ def edit_event(event_id):
     form.endDate.data = event.endDate
     form.url.data = event.url
 
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate_on_submit():
 
-        # populate event object with fields from form
-        form.populate_obj(event)
+        # add values submitted to form to event
+        event.name = request.form['name']
+        event.description = request.form['description']
+        event.startDate = request.form['startDate']
+        event.endDate = request.form['endDate']
+        event.url = request.form['url']
 
         # save changes in database
+        db.session.add(event)
         db.session.commit()
 
         message = "Your event has been updated."
         return render_template('message.html', message=message)
 
-    else:
+    elif request.method == 'POST':
         message = "Oops! Something went wrong."
         return render_template('message.html', message=message)
 
-
-    return render_template('edit_event.html', form=form)
+    return render_template('edit_event.html', event_id=event_id, form=form)
 
 
 if __name__ == '__main__':
