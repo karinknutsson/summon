@@ -62,15 +62,27 @@ def new_event():
     return render_template('new_event.html', form=form)
 
 
-@app.route('/edit/<id>', methods=['GET', 'POST'])
-def edit_event(id):
+@app.route('/edit/<event_id>', methods=['GET', 'POST'])
+def edit_event(event_id):
     form = EventForm()
-    event = Event.query.get(id)
+    event = Event.query.get(event_id)
     if request.method == 'POST':
         message = "Your event has been updated."
         return render_template('message.html', message=message)
 
     return render_template('edit_event.html', event=event)
+
+
+@app.route('/delete/<event_id>', methods=['GET', 'DELETE'])
+def delete_event(event_id):
+    event = Event.query.get(event_id)
+    db.session.delete(event)
+    db.session.commit()
+    if Event.query.get(event_id):
+        message = "Something went wrong."
+    else:
+        message = "The event has been deleted."
+    return render_template('message.html', message=message)
 
 
 if __name__ == '__main__':
