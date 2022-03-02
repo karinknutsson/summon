@@ -96,5 +96,17 @@ def edit_event(event_id):
     return render_template('edit_event.html', event_id=event_id, form=form)
 
 
+@app.route('/delete/<event_id>', methods=['GET', 'DELETE'])
+def delete_event(event_id):
+    event = Event.query.get(event_id)
+    db.session.delete(event)
+    db.session.commit()
+    if Event.query.get(event_id):
+        message = "Something went wrong."
+    else:
+        message = "The event has been deleted."
+    return render_template('message.html', message=message)
+
+
 if __name__ == '__main__':
     app.run()
