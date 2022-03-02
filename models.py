@@ -18,6 +18,5 @@ class Event(db.Model):
         self.name = name
         self.description = description
 
-
     def __repr__(self):
         return '<id {}>'.format(self.id)

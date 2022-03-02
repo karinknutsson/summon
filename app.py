@@ -53,7 +53,7 @@ def new_event():
         return render_template('message.html', message=message)
 
     elif request.method == 'POST':
-        message="Thanks! Something went wrong."
+        message = "Thanks! Something went wrong."
         return render_template('message.html', message=message)
 
     return render_template('new_event.html', form=form)
@@ -64,11 +64,10 @@ def edit_event(id):
     form = EventForm()
     event = Event.query.get(id)
     if request.method == 'POST':
-        message="Your event has been updated."
+        message = "Your event has been updated."
         return render_template('message.html', message=message)
 
     return render_template('edit_event.html', event=event)
-
 
 
 if __name__ == '__main__':
