@@ -45,7 +45,6 @@ def new_event():
         endDate = request.form['endDate']
         url = request.form['url']
         record = Event(url, startDate, endDate, name, description)
-        print(record)
 
         # add record to database
         db.session.add(record)
@@ -56,21 +55,41 @@ def new_event():
         return render_template('message.html', message=message)
 
     elif request.method == 'POST':
-        message = "Thanks! Something went wrong."
+        message = "Oops! Something went wrong."
         return render_template('message.html', message=message)
 
     return render_template('new_event.html', form=form)
 
 
-@app.route('/edit/<id>', methods=['GET', 'POST'])
-def edit_event(id):
+@app.route('/edit/<event_id>', methods=['GET', 'POST', 'PUT'])
+def edit_event(event_id):
     form = EventForm()
-    event = Event.query.get(id)
-    if request.method == 'POST':
+    event = Event.query.get(event_id)
+
+    # add event properties to form
+    form.name.data = event.name
+    form.description.data = event.description
+    form.startDate.data = event.startDate
+    form.endDate.data = event.endDate
+    form.url.data = event.url
+
+    if form.validate_on_submit():
+
+        # populate event object with fields from form
+        form.populate_obj(event)
+
+        # save changes in database
+        db.session.commit()
+
         message = "Your event has been updated."
         return render_template('message.html', message=message)
 
-    return render_template('edit_event.html', event=event)
+    else:
+        message = "Oops! Something went wrong."
+        return render_template('message.html', message=message)
+
+
+    return render_template('edit_event.html', form=form)
 
 
 if __name__ == '__main__':
