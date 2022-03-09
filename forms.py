@@ -11,3 +11,15 @@ class EventForm(FlaskForm):
     endDate = DateTimeLocalField('End time', format='%Y-%m-%dT%H:%M')
     url = StringField('Link')
     submit = SubmitField('Submit')
+
+
+class UserForm(FlaskForm):
+    email = StringField('E-mail', validators=[DataRequired(message='Cannot be blank')])
+    password = StringField('Password')
+    submit = SubmitField('Register')
+
+
+class LoginForm(FlaskForm):
+    email = StringField('E-mail', validators=[DataRequired(message='Cannot be blank')])
+    password = StringField('Password')
+    submit = SubmitField('Login')
