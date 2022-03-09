@@ -152,8 +152,8 @@ def new_user():
             db.session.add(user)
             db.session.commit()
             app.logger.info(f"Created user {user.email}")
-            message = f"Thanks! User {email} has been registered."
-            return render_template('message.html', message=message)
+            message = f"Thanks! User {email} has been registered"
+            return render_template('login_success.html', message=message)
         except IntegrityError:
             db.session.rollback()
             message = f"User with E-mail {email} already exists, please try a different one"

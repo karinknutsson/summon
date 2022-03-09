@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-0 col-sm-2 col-md-4"></div>
+        <div class="col-12 col-sm-8 col-md-4">
+            <h6>{{ message }}</h6>
+            <ul>
+                <li>
+                    <a href="{{ url_for('login') }}">Log in now</a>
+                </li>
+            </ul>
+        <div class="col-0 col-sm-2 col-md-4"></div>
+</div>
+{% endblock %}
