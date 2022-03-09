@@ -2,6 +2,7 @@ import os, logging
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import IntegrityError
+from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager, login_user, current_user, logout_user
 from functools import wraps
@@ -20,7 +21,7 @@ csrf = CSRFProtect(app)
 from models import *
 from forms import EventForm, UserForm, LoginForm
 
-
+migrate = Migrate(app, db)
 db.create_all()
 
 login_manager = LoginManager()
@@ -140,14 +141,17 @@ def new_user():
     if request.method == 'POST' and form.validate_on_submit():
         email = request.form['email']
         password = request.form['password']
+        user = User()
         try:
-            user = User(email, password)
+            user.email = email
+            user.password = password
             db.session.add(user)
             db.session.commit()
             app.logger.info(f"Created user {user.email}")
             message = f"Thanks! User {email} has been registered."
             return render_template('message.html', message=message)
         except IntegrityError:
+            db.session.rollback()
             message = f"User with E-mail {email} already exists, please try a different one"
             return render_template('new_user.html', form=form, message=message)
     return render_template('new_user.html', form=form)
@@ -159,7 +163,12 @@ def login():
     if request.method == 'POST' and form.validate_on_submit():
         email = request.form['email']
         password = request.form['password']
-        return redirect(url_for('index'))
+        user = db.session.query(User).filter_by(email=email).first()
+        if user is not None and user.check_password(password):
+            login_user(user)
+            return redirect(url_for('index'))
+        message = "Sorry, e-mail and password do not match or user does not exist"
+        return render_template('login.html', form=form, message=message)
     return render_template('login.html', form=form)
 
 
