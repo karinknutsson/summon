@@ -170,8 +170,10 @@ def login():
         user = db.session.query(User).filter_by(email=email).first()
         if user is not None and user.check_password(password):
             login_user(user)
+            app.logger.info(f"user with email {email} successfully logged in")
             return redirect(url_for('index'))
         message = "Sorry, e-mail and password do not match or user does not exist"
+        app.logger.info(f"invalid login for {email}")
         return render_template('login.html', form=form, message=message)
     return render_template('login.html', form=form)
 

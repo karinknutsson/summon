@@ -19,6 +19,11 @@
             <p>
                 {{ message }}
             </p>
+
+            {% for error in form.email.errors %}
+            <p>{{ error }}</p>
+            {% endfor %}
+
             <div class="right-align">{{ form.submit() }}</div>
         </form>
     </div>

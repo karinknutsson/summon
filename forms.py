@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.fields import DateTimeLocalField
-from wtforms.validators import DataRequired, Length
+from wtforms.validators import DataRequired, Length, Email
 
 
 class EventForm(FlaskForm):
@@ -14,12 +14,20 @@ class EventForm(FlaskForm):
 
 
 class UserForm(FlaskForm):
-    email = StringField('E-mail', validators=[DataRequired(message='Cannot be blank')])
-    password = StringField('Password')
+    email = StringField('E-mail', validators=[
+        DataRequired(message='Cannot be blank'),
+        Length(max=150),
+        Email(message='Please provide a valid E-mail')
+    ])
+    password = StringField('Password', validators=[DataRequired(message='Cannot be blank'), Length(max=150)])
     submit = SubmitField('Register')
 
 
 class LoginForm(FlaskForm):
-    email = StringField('E-mail', validators=[DataRequired(message='Cannot be blank')])
-    password = StringField('Password')
+    email = StringField('E-mail', validators=[
+        DataRequired(message='Cannot be blank'),
+        Length(max=150),
+        Email(message='Please provide a valid E-mail')
+    ])
+    password = StringField('Password', validators=[DataRequired(message='Cannot be blank'), Length(max=150)])
     submit = SubmitField('Login')
