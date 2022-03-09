@@ -55,12 +55,14 @@ def all_events():
 
 
 @app.route('/events/<event_id>')
+@requires_logged_in
 def show_event(event_id):
     event = Event.query.get(event_id)
     return render_template('event.html', event=event)
 
 
 @app.route('/new', methods=['GET', 'POST'])
+@requires_logged_in
 def new_event():
     form = EventForm()
     if request.method == 'POST' and form.validate_on_submit():
@@ -89,6 +91,7 @@ def new_event():
 
 
 @app.route('/edit/<event_id>', methods=['GET', 'POST', 'PUT'])
+@requires_logged_in
 def edit_event(event_id):
     form = EventForm()
     event = Event.query.get(event_id)
@@ -124,6 +127,7 @@ def edit_event(event_id):
 
 
 @app.route('/delete/<event_id>', methods=['GET', 'DELETE'])
+@requires_logged_in
 def delete_event(event_id):
     event = Event.query.get(event_id)
     db.session.delete(event)
