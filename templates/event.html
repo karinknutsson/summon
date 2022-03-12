@@ -6,6 +6,7 @@
     <div class="col-12 col-sm-8 col-md-4">
         <h4>{{ event.name }}</h4>
         <p>{{ event.description }}</p>
+        <p>Created by user {{ creator.id }}</p>
 
         <div><a href="{{ url_for('edit_event', event_id=event.id) }}"><h4>Edit event</h4></a></div>
         <div><a href="{{ url_for('delete_event', event_id=event.id) }}"><h4>Delete event</h4></a></div>

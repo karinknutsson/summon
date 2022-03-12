@@ -58,7 +58,8 @@ def all_events():
 @requires_logged_in
 def show_event(event_id):
     event = Event.query.get(event_id)
-    return render_template('event.html', event=event)
+    creator = User.query.get(event.user_id)
+    return render_template('event.html', event=event, creator=creator)
 
 
 @app.route('/new', methods=['GET', 'POST'])
