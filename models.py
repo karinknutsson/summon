@@ -1,6 +1,6 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask_login import UserMixin
 
 class Event(db.Model):
     __tablename__ = 'events'
@@ -23,7 +23,7 @@ class Event(db.Model):
         return '<id {}>'.format(self.id)
 
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
