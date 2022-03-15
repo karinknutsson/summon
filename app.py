@@ -164,6 +164,23 @@ def new_user():
     return render_template('new_user.html', form=form)
 
 
+@app.route('/user/<user_id>/edit', methods=['GET', 'POST', 'PUT'])
+def edit_user(user_id):
+    form = UserForm()
+    user = User.query.get(user_id)
+
+    # add user properties to form
+    form.email.data = user.email
+    form.username.data = user.username
+
+    if request.method == 'POST' and form.validate_on_submit():
+        email = request.form['email']
+        username = request.form['username']
+        password = request.form['password']
+
+    return render_template('edit_user.html', form=form)
+
+
 @app.route('/user/login', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
