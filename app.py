@@ -145,15 +145,17 @@ def new_user():
     form = UserForm()
     if request.method == 'POST' and form.validate_on_submit():
         email = request.form['email']
+        username = request.form['username']
         password = request.form['password']
         user = User()
         try:
             user.email = email
+            user.username = username
             user.password = password
             db.session.add(user)
             db.session.commit()
-            app.logger.info(f"Created user {user.email}")
-            message = f"Thanks! User {email} has been registered"
+            app.logger.info(f"Created user {user.username}")
+            message = f"Thanks! User {username} has been registered"
             return render_template('login_success.html', message=message)
         except IntegrityError:
             db.session.rollback()

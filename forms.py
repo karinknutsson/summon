@@ -19,7 +19,11 @@ class UserForm(FlaskForm):
         Length(max=150),
         Email(message='Please provide a valid E-mail')
     ])
-    password = StringField('Password', validators=[DataRequired(message='Cannot be blank'), Length(max=150)])
+    username = StringField('Username', validators=[
+                                             DataRequired(message='Cannot be blank'),
+                                             Length(max=150)
+                                         ])
+    password = PasswordField('Password', validators=[DataRequired(message='Cannot be blank'), Length(max=150)])
     submit = SubmitField('Register')
 
 
@@ -29,5 +33,5 @@ class LoginForm(FlaskForm):
         Length(max=150),
         Email(message='Please provide a valid E-mail')
     ])
-    password = StringField('Password', validators=[DataRequired(message='Cannot be blank'), Length(max=150)])
+    password = PasswordField('Password', validators=[DataRequired(message='Cannot be blank'), Length(max=150)])
     submit = SubmitField('Login')

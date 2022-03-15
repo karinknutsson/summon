@@ -8,6 +8,7 @@ class User(db.Model, UserMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(), nullable=False, unique=True)
+    username = db.Column(db.String(), unique=True)
     password_hash = db.Column(db.String(), nullable=False)
     events = db.relationship('Event', back_populates='users')
 
