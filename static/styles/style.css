@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Knewave&family=League+Spartan:wght@200;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 
 body {
-  background: #8080ff;
+  background: rgba(94,96,206,1);
+  /*
+    background: linear-gradient(25deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 49%, rgba(78,168,222,1) 58%, rgba(72,191,227,1) 67%, rgba(86,207,225,1) 75%, rgba(100,223,223,1) 86%, rgba(114,239,221,1) 99%);
+    background: linear-gradient(51deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 54%, rgba(78,168,222,1) 64%, rgba(72,191,227,1) 74%, rgba(86,207,225,1) 81%, rgba(100,223,223,1) 88%, rgba(114,239,221,1) 99%);
+  */
+  /*
+    background: linear-gradient(73deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 54%, rgba(78,168,222,1) 64%, rgba(72,191,227,1) 74%, rgba(86,207,225,1) 81%, rgba(100,223,223,1) 88%, rgba(114,239,221,1) 99%);
+   */
+  /*background: #8A95FF;*/
+  /*background: rgb(139, 127, 254);*/
+  /*background: rgb(142, 152, 251);
+  background-size: cover;*/
+  background: black;
   color: white;
   font-family: 'League Spartan', sans-serif;
 }
@@ -9,6 +22,10 @@ body {
 h1 {
   font-family: 'Knewave', sans-serif;
   font-size: 52pt;
+  /*color: #8CF4B9;*/
+  /*color: rgb(243, 242, 254);*/
+  color: #78EFA8;
+  /*color: rgb(142, 152, 251);*/
 }
 
 h2, h3, h4, h5, h6 {
@@ -69,12 +86,59 @@ ul {
 }
 
 li {
+  padding: 16px;
   font-size: 16pt;
   font-weight: bold;
 }
 
+img.card-img {
+  width: 90%;
+  height: 160px;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+}
+
+.app-content-container {
+  /*border: 24px solid transparent;*/
+  width: 100%;
+  margin: 0;
+  padding: 16px;
+  background: black;
+  color: white;
+}
+
 .title, .title:hover, .title:active, .title:visited {
   color: white !important;
+}
+
+.top-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-container, .search-gear-container {
+  flex: 10 0 auto;
+}
+
+.search-gear-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.new-container {
+  font-size: 28pt;
+  flex: 0 0 64px;
 }
 
 .margin-bottom {
@@ -93,4 +157,120 @@ li {
 
 .right-align {
   text-align: right;
+}
+
+.summon-navbar {
+  width: 100%;
+  height: 96px;
+  background: black;
+  /*background: rgb(219, 169, 46);*/
+  /*border-bottom: 4px solid rgb(140, 51, 0);*/
+  /*background: #8CF4B9;*/
+  /*border-top: 4px solid #8CF4B9;
+  border-bottom: 4px solid #8CF4B9;*/
+  /*border: 0;*/
+  padding: 0 16px 16px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.navbar-li {
+  margin: 8px;
+  padding: 12px;
+  background: rgb(142, 152, 251);
+  /*background: #CFE5D8;*/
+  /*border: 4px solid #D4F4B0;*/
+  border: 0;
+  color: black;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 40px;
+  font-family: sans-serif;
+  font-size: 24pt;
+}
+
+.navbar-li-active {
+  margin: 8px;
+  padding: 12px;
+  background: rgb(142, 152, 251);
+  /*background: #CFE5D8;*/
+  /*border: 4px solid #D4F4B0;*/
+  border: 0;
+  color: #d4f4b0;
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  border-radius: 40px;
+  font-family: sans-serif;
+  font-size: 24pt;
+}
+
+.navbar-search {
+  width: 80px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content:  flex-end;
+  border-bottom: 2px solid rgb(142, 152, 251);
+  font-size: 14pt;
+}
+
+.navbar-search, .navbar-mini-btn {
+  /*color: #412ab4;*/
+  color: rgb(142, 152, 251);
+  font-weight: 600;
+  margin: 4px;
+}
+
+.navbar-mini-btn {
+  width: 40px;
+  height: 40px;
+  font-size: 20pt;
+}
+
+.menu-item {
+  /*padding: 14px 10px 10px 10px;*/
+  height: 100%;
+}
+
+.event-card {
+  background: white;
+  width: 86vw;
+  max-width: 400px;
+}
+
+.event-card-title {
+  color: black;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24pt;
+  }
+
+  .padding-32 {
+    padding: 16px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .summon-navbar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+  }
 }

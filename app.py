@@ -48,14 +48,14 @@ def index():
 
 
 @app.route('/events')
-@requires_logged_in
+#@requires_logged_in
 def all_events():
     events = Event.query.all()
     return render_template('events.html', events=events)
 
 
 @app.route('/events/<event_id>')
-@requires_logged_in
+#@requires_logged_in
 def show_event(event_id):
     event = Event.query.get(event_id)
     creator = User.query.get(event.user_id)
@@ -63,7 +63,7 @@ def show_event(event_id):
 
 
 @app.route('/new', methods=['GET', 'POST'])
-@requires_logged_in
+#@requires_logged_in
 def new_event():
     form = EventForm()
     if request.method == 'POST' and form.validate_on_submit():
@@ -92,7 +92,7 @@ def new_event():
 
 
 @app.route('/edit/<event_id>', methods=['GET', 'POST', 'PUT'])
-@requires_logged_in
+#@requires_logged_in
 def edit_event(event_id):
     form = EventForm()
     event = Event.query.get(event_id)
