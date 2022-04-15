@@ -18,7 +18,7 @@
                 <a href="{{ url_for('new_event') }}" class="new"><i class="fa-solid fa-circle-plus"></i></a>
             </div>-->
             <div class="search-gear-container">
-                <button class="no-btn">
+                <button id="searchButton" class="no-btn">
                     <div class="navbar-search">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
@@ -63,5 +63,44 @@
                 {% block content %} {% endblock %}
             </div>
         </div>
+
+        <div id="searchModal" class="search-modal padding-32">
+            <form action="/search" method="post">
+                <div class="search-input-submit">
+                    <input type="text" class="search-input" placeholder="search for events...">
+                    <button type="submit" class="search-submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button id ="closeButton" type="button" class="no-btn">
+                        <div class="menu-container center-flex">
+                            <i class="fa-solid fa-close"></i>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="eventModal">
+
+        </div>
+
+        <script>
+            const searchModal = document.getElementById('searchModal');
+            searchModal.style.display = 'none';
+            const toggleSearchModal = () => {
+                console.log(searchModal.style.display);
+                if (searchModal.style.display === 'none') {
+                    searchModal.style.display = 'block';
+                } else {
+                    searchModal.style.display = 'none';
+                }
+            }
+
+            const searchButton = document.getElementById('searchButton');
+            searchButton.addEventListener('click', toggleSearchModal);
+
+            const closeButton = document.getElementById('closeButton');
+            closeButton.addEventListener('click', toggleSearchModal);
+
+            const eventModal = document.getElementById(('eventModal'));
+        </script>
     </body>
 </html>
