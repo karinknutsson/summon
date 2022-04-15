@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 
 body {
-  background: rgba(94,96,206,1);
+  /*background: rgba(94,96,206,1);*/
   /*
     background: linear-gradient(25deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 49%, rgba(78,168,222,1) 58%, rgba(72,191,227,1) 67%, rgba(86,207,225,1) 75%, rgba(100,223,223,1) 86%, rgba(114,239,221,1) 99%);
     background: linear-gradient(51deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 54%, rgba(78,168,222,1) 64%, rgba(72,191,227,1) 74%, rgba(86,207,225,1) 81%, rgba(100,223,223,1) 88%, rgba(114,239,221,1) 99%);
@@ -12,8 +12,11 @@ body {
    */
   /*background: #8A95FF;*/
   /*background: rgb(139, 127, 254);*/
-  background: rgb(142, 152, 251);
-  background-size: cover;
+  /*background: rgb(142, 152, 251);*/
+
+  background: rgb(170,178,255);
+  background: linear-gradient(203deg, rgba(170,178,255,1) 0%, rgba(115,128,255,1) 63%);
+  background-attachment: fixed;
   color: white;
   font-family: 'League Spartan', sans-serif;
 }
@@ -22,10 +25,8 @@ h1 {
   font-family: 'Knewave', sans-serif;
   font-size: 52pt;
   color: #8CF4B9;
-
   filter: drop-shadow(0 0 10px rgba(31, 38, 135, 0.37));
   /*color: rgb(243, 242, 254);*/
-
   /*color: rgb(142, 152, 251);*/
   /*color: white;*/
 }
@@ -131,6 +132,16 @@ img.card-img {
   border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.24);
   height: 96px;
+}
+
+@keyframes top-expand {
+  from {
+    height: 96px;
+  }
+
+  to {
+    height:67%;
+  }
 }
 
 .title-container, .search-gear-container {
@@ -245,7 +256,7 @@ img.card-img {
 .navbar-li-active {
   margin: 8px;
   padding: 12px;
-  color: #ff9e2c;
+  color: #c6ff4b;
   display: inline-block;
   width: 64px;
   height: 64px;
@@ -340,8 +351,8 @@ img.card-img {
   filter: drop-shadow(0 0 15px white);
 }
 
-.fa-solid {
-  filter: drop-shadow(0 0 5px yellow);
+.fa-glass {
+  filter: drop-shadow(0 0 10px rgba(31, 38, 135, 0.24));
 }
 
 #eventModal {
