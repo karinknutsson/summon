@@ -14,16 +14,21 @@
             <div class="title-container">
                 <a href="{{ url_for('index') }}" class="title"><h1>&nbsp;summon</h1></a>
             </div>
-            <div class="new-container center-flex">
+            <!--<div class="new-container center-flex">
                 <a href="{{ url_for('new_event') }}" class="new"><i class="fa-solid fa-circle-plus"></i></a>
-            </div>
+            </div>-->
             <div class="search-gear-container">
-                <div class="navbar-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </div>
-                <div class="navbar-mini-btn center-flex">
-                    <i class="fa-solid fa-gear"></i>
-                </div>
+                <button class="no-btn">
+                    <div class="navbar-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                </button>
+
+                <button class="no-btn">
+                    <div class="menu-container center-flex">
+                        <i class="fa-solid fa-caret-down"></i>
+                    </div>
+                </button>
             </div>
         </div>
 
