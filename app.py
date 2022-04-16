@@ -21,6 +21,8 @@ csrf = CSRFProtect(app)
 from models import *
 from forms import EventForm, UserForm, LoginForm
 
+db.drop_all()
+
 migrate = Migrate(app, db)
 db.create_all()
 
