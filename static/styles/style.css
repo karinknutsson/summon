@@ -30,7 +30,7 @@ body {
 
 h1 {
   font-family: 'Knewave', sans-serif;
-  font-size: 52pt;
+  font-size: 42pt;
   /*color: #909bff;*/
   filter: drop-shadow(0 0 10px rgba(31, 38, 135, 0.37));
   /*color: rgb(243, 242, 254);*/
@@ -104,11 +104,6 @@ li {
   padding: 16px;
   font-size: 16pt;
   font-weight: bold;
-}
-
-img.card-img {
-  width: 90%;
-  height: 160px;
 }
 
 .container-fluid {
@@ -287,15 +282,39 @@ img.card-img {
   height: 100%;
 }
 
+
+/* EVENT CARDS */
+
+.events-container {
+  width: 100%;
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
 .event-card {
+  padding: 24px 32px;
   background: white;
-  width: 86vw;
+  width: 81vw;
   max-width: 400px;
+  height: 54vw;
+  max-height: 300px;
+  color: black !important;
+  font-size: 12pt;
 }
 
 .event-card-title {
-  color: black;
+  margin: 16px 0 6px 0;
+  font-size: 14pt;
 }
+
+img.event-card-img {
+  width: 100%;
+  height: 160px;
+}
+
 
 .search-modal {
   position: fixed;

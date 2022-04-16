@@ -10,7 +10,6 @@ from functools import wraps
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-# app.config.from_object(os.environ['SECRET_KEY'])
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 app.logger.setLevel(logging.INFO)
@@ -20,8 +19,6 @@ csrf = CSRFProtect(app)
 
 from models import *
 from forms import EventForm, UserForm, LoginForm
-
-db.drop_all()
 
 migrate = Migrate(app, db)
 db.create_all()
