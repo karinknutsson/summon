@@ -54,7 +54,7 @@ def all_events():
 
 
 @app.route('/events/<event_id>')
-#@requires_logged_in
+@requires_logged_in
 def show_event(event_id):
     event = Event.query.get(event_id)
     creator = User.query.get(event.user_id)
@@ -62,7 +62,7 @@ def show_event(event_id):
 
 
 @app.route('/new', methods=['GET', 'POST'])
-#@requires_logged_in
+@requires_logged_in
 def new_event():
     form = EventForm()
     if request.method == 'POST' and form.validate_on_submit():

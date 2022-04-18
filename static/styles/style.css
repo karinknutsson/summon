@@ -54,17 +54,24 @@ input {
   border-radius: 2px;
   padding: 4px 8px;
   width: 100%;
+  font-size: 12pt;
 }
 
 input[type=submit] {
   font-family: inherit;
   font-weight: bold;
-  font-size: 18pt;
+  font-size: 14pt;
   padding: 8px;
-  margin-top: 16px;
+  margin-top: 8px;
   color: white;
-  background: #cea4ff;
+  /*background: #cea4ff;*/
   width: 180px;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 6px;
 }
 
 textarea {
@@ -72,7 +79,7 @@ textarea {
   border: 0;
   border-radius: 2px;
   width: 100%;
-  height: 180px;
+  height: 104px;
   resize: none;
 }
 
@@ -106,6 +113,10 @@ li {
   font-weight: bold;
 }
 
+label {
+  margin-bottom: 6px;
+}
+
 .container-fluid {
   margin: 0;
   padding: 0;
@@ -127,7 +138,12 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   height: 96px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
 }
 
 @keyframes search-expand {
@@ -144,7 +160,7 @@ li {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
+  gap: 4px;
 }
 
 .menu-container {
@@ -190,9 +206,8 @@ li {
 }
 
 .top-navbar {
-  width: 400px;
-  display: flex;
-  justify-content: flex-end;
+  display: block;
+  margin-right: 32px;
 }
 
 .bottom-navbar {
@@ -209,7 +224,7 @@ li {
 }
 
 .navbar-li, .navbar-li-active {
-  margin: 4px;
+  margin: 6px;
   padding: 8px;
   display: inline-block;
   width: 48px;
@@ -228,41 +243,47 @@ li {
 }
 
 .navbar-search {
-  margin-top: -6px;
   width: 112px;
   height: 40px;
   display: flex;
   align-items: center;
   justify-content:  flex-end;
-  /*border-bottom: 2px solid #bfff76;*/
   font-size: 14pt;
   padding: 8px;
-}
-
-.navbar-search, .navbar-mini-btn {
-  /*color: #412ab4;*/
-  /*color: #78EFA8;*/
-  /*color: #bfff76;*/
   color: white;
   font-weight: 600;
-  margin: 4px;
-}
-
-.navbar-mini-btn {
-  width: 40px;
-  height: 40px;
-  font-size: 20pt;
 }
 
 .menu-item {
-  /*padding: 14px 10px 10px 10px;*/
   height: 100%;
 }
 
+.main-container {
+  width: 100%;
+  margin: 80px 0;
+}
 
-/* EVENT CARDS */
+.form-input {
+  margin: 16px 0;
+}
 
-.events-container {
+.date-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.date-input {
+  flex: 5 5 50%;
+}
+
+#startDate, #endDate {
+  font-size: 10pt;
+  padding: 4px 0 4px 2px;
+}
+
+.events-content {
+  padding-top: 32px;
   width: 100%;
   display: flex;
   gap: 32px;
@@ -340,16 +361,16 @@ img.event-card-img {
 .white-glass {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
   border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .black-glass {
   background: rgba(0, 0, 0, 0.7);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
   border: 1px solid rgba(0, 0, 0, 0.24);
 }
 
@@ -366,11 +387,9 @@ img.event-card-img {
   display: none;
 }
 
-
-
-@media (max-width: 700px) {
+@media (max-width: 800px) {
   h1 {
-    font-size: 28pt;
+    font-size: 26pt;
   }
 
   .top-container {
