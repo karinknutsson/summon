@@ -18,7 +18,7 @@
                     {{ form.description }}
                 </div>
 
-                <div class="date-container">
+                <div class="date-container gap-8">
                     <div class="date-input">
                         <strong>{{ form.startDate.label }}</strong><br>
                         {{ form.startDate }}
@@ -34,7 +34,10 @@
                     {{ form.url }}
                 </div>
 
-                <div class="right-align">{{ form.submit() }}</div>
+                <div class="form-input justify-flex gap-8">
+                    <button class="btn-disabled" disabled>Save draft</button>
+                    {{ form.submit() }}
+                </div>
             </form>
         </div>
     </div>

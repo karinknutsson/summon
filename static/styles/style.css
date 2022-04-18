@@ -2,27 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap');
 
 body {
-  /*background: rgba(94,96,206,1);*/
-  /*
-    background: linear-gradient(25deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 49%, rgba(78,168,222,1) 58%, rgba(72,191,227,1) 67%, rgba(86,207,225,1) 75%, rgba(100,223,223,1) 86%, rgba(114,239,221,1) 99%);
-    background: linear-gradient(51deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 54%, rgba(78,168,222,1) 64%, rgba(72,191,227,1) 74%, rgba(86,207,225,1) 81%, rgba(100,223,223,1) 88%, rgba(114,239,221,1) 99%);
-  */
-  /*
-    background: linear-gradient(73deg, rgba(116,0,184,1) 1%, rgba(105,48,195,1) 9%, rgba(94,96,206,1) 21%, rgba(83,144,217,1) 54%, rgba(78,168,222,1) 64%, rgba(72,191,227,1) 74%, rgba(86,207,225,1) 81%, rgba(100,223,223,1) 88%, rgba(114,239,221,1) 99%);
-   */
-  /*background: #8A95FF;*/
-  /*background: rgb(139, 127, 254);*/
-  /*background: rgb(142, 152, 251);*/
-
   /* HEATHER BLUE GRADIENT BACKGROUND */
   background: rgb(170,178,255);
   background: linear-gradient(203deg, rgba(170,178,255,1) 0%, rgba(115,128,255,1) 63%);
-
-  /* BLACK GRADIENT BACKGROUND
-  background: rgb(57,59,77);
-  background: linear-gradient(196deg, rgba(57,59,77,1) 0%, rgba(0,0,0,1) 63%);
-  */
-
   background-attachment: fixed;
   color: white;
   font-family: 'League Spartan', sans-serif;
@@ -31,10 +13,7 @@ body {
 h1 {
   font-family: 'Knewave', sans-serif;
   font-size: 32pt;
-  /*color: #909bff;*/
   filter: drop-shadow(0 0 10px rgba(31, 38, 135, 0.37));
-  /*color: rgb(243, 242, 254);*/
-  /*color: rgb(142, 152, 251);*/
   color: black;
 }
 
@@ -58,20 +37,29 @@ input {
 }
 
 input[type=submit] {
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  color: white;
+}
+
+input[type=submit], .btn-disabled {
   font-family: inherit;
   font-weight: bold;
   font-size: 14pt;
   padding: 8px;
   margin-top: 8px;
-  color: white;
-  /*background: #cea4ff;*/
   width: 180px;
-  background: rgba(0, 0, 0, 0.7);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(0, 0, 0, 0.24);
   border-radius: 6px;
+  flex: 5 5 50%;
+}
+
+.btn-disabled {
+  background: rgba(150, 150, 150, 0.7);
+  border: 1px solid rgba(150, 150, 150, 0.24);
+  color: #d8d8d8;
 }
 
 textarea {
@@ -98,7 +86,6 @@ a:active, a:hover {
 
 a.new {
   color: #78EFA8 !important;
-  /*color: #d4f4b0 !important;*/
 }
 
 ul {
@@ -123,7 +110,6 @@ label {
 }
 
 .app-content-container {
-  /*border: 24px solid transparent;*/
   width: 100%;
   margin: 0;
   padding: 24px;
@@ -189,10 +175,21 @@ label {
   padding: 32px;
 }
 
-.center-flex {
+.center-flex, .justify-flex {
   display: flex;
   align-items: center;
+}
+
+.center-flex {
   justify-content: center;
+}
+
+.justify-flex {
+  justify-content: space-between;
+}
+
+.gap-8 {
+  gap: 8px;
 }
 
 .right-align {
@@ -270,7 +267,6 @@ label {
 .date-container {
   display: flex;
   justify-content: space-between;
-  gap: 8px;
 }
 
 .date-input {
