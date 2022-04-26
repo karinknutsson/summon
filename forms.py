@@ -5,7 +5,7 @@ from wtforms.validators import DataRequired, Length, Email
 
 
 class EventForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired(message='Cannot be blank')])
+    name = StringField('Event name', validators=[DataRequired(message='Cannot be blank')])
     description = TextAreaField('Description')
     startDate = DateTimeLocalField('Start time', format='%Y-%m-%dT%H:%M')
     endDate = DateTimeLocalField('End time', format='%Y-%m-%dT%H:%M')

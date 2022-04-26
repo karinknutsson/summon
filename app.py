@@ -10,7 +10,6 @@ from functools import wraps
 app = Flask(__name__)
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-# app.config.from_object(os.environ['SECRET_KEY'])
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 app.logger.setLevel(logging.INFO)
@@ -48,7 +47,7 @@ def index():
 
 
 @app.route('/events')
-@requires_logged_in
+#@requires_logged_in
 def all_events():
     events = Event.query.all()
     return render_template('events.html', events=events)
@@ -92,7 +91,7 @@ def new_event():
 
 
 @app.route('/edit/<event_id>', methods=['GET', 'POST', 'PUT'])
-@requires_logged_in
+#@requires_logged_in
 def edit_event(event_id):
     form = EventForm()
     event = Event.query.get(event_id)

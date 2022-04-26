@@ -2,15 +2,26 @@
 
 {% block content %}
 <div class="row">
-    <div class="col-0 col-sm-2 col-md-4"></div>
-    <div class="col-12 col-sm-8 col-md-4">
-        <h4>Events</h4>
-        <ul>
-            {% for event in events %}
-            <li><a href="{{ url_for('show_event', event_id=event.id) }}">{{ event.name }}</a></li>
-            {% endfor %}
-        </ul>
+    <div class="col-0 col-sm-1 col-md-1"></div>
+    <div class="col-12 col-sm-10 col-md-10">
+        <div class="main-container">
+            <div class="events-content">
+                {% for event in events %}
+                    <a href="{{ url_for('show_event', event_id=event.id) }}">
+                        <div class="event-card">
+                            <img class="event-card-img" src="{{ url_for('static', filename='texture.jpg') }}" />
+
+                            <h3 class="event-card-title">{{ event.name }}</h3>
+                            <p>
+                                {{ event.description }}
+                            </p>
+
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    <div class="col-0 col-sm-2 col-md-4"></div>
+    <div class="col-0 col-sm-1 col-md-1"></div>
 </div>
 {% endblock %}
