@@ -236,7 +236,8 @@ label {
 }
 
 .navbar-li-active {
-  color: #65ffa8;
+  /*color: #65ffa8;*/
+  color: #ffd631;
 }
 
 .navbar-search {
